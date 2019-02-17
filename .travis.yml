@@ -8,6 +8,10 @@ install:
   - composer selfupdate
   - composer install
 
+services:
+  - mysql
+before_install:
+  - mysql -e 'CREATE DATABASE travis;'
 script:
   #- ./vendor/bin/phpcs -s
   #- ./vendor/bin/php-cs-fixer fix --diff --dry-run

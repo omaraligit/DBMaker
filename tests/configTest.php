@@ -8,9 +8,9 @@
 return [
     "driver"=>"mysql",
     "mysql"=>[
-        "host"=>"localhost",
-        "dbname"=>"travic",
-        "user"=>"root",
-        "password"=>""
+        "host"=>"127.0.0.1",
+        "dbname"=>"travis",
+        "user"=>"travis",
+        "password"=>"root"
     ]
 ];
