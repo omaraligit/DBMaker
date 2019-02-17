@@ -4,14 +4,16 @@
 **DBMaker** is a database toolkit to create - update tables in your database
 
 **DBMaker can** 
-- create / update your projects database so you don't need to keep a sql file of your database with your project
-- make your project easy and light weight
-- add a layer between your project and databse
-- ORM manage your database ad classes in your project
+- create / update your project's database so you don't need to keep a sql file of your database with your project
+- **ORM** manage your database as **Objects** in your project
+- migrations system
+- work as in groups with a up-to-date database schema
+- make your project easy and lightweight
+- add a layer between your project and database
 
 ***please not this is under development***
 
 ## instalation
-```php
+```console
 composer install omaraligit/DBMaker
 ```
