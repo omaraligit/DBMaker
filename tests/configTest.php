@@ -9,7 +9,7 @@ return [
     "driver"=>"mysql",
     "mysql"=>[
         "host"=>"localhost",
-        "dbname"=>"php_package",
+        "dbname"=>"travic",
         "user"=>"root",
         "password"=>""
     ]

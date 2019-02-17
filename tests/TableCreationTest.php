@@ -33,7 +33,7 @@ class TableCreationTest extends TestCase
     public function testTableCreation()
     {
         $dbmaker = new DBMaker($this->config);
-        $this->assertInstanceOf(DatabaseMaker::class,$dbmaker);
+        $this->assertInstanceOf(DBMaker::class,$dbmaker);
         $this->assertIsArray($this->config);
     }
 
