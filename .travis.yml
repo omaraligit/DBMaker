@@ -11,7 +11,7 @@ install:
 services:
   - mysql
 before_install:
-  - mysql -e 'CREATE DATABASE travis;'
+  - mysql -e 'CREATE DATABASE IF NOT EXISTS php_package;'
 script:
   #- ./vendor/bin/phpcs -s
   #- ./vendor/bin/php-cs-fixer fix --diff --dry-run

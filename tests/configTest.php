@@ -9,7 +9,7 @@ return [
     "driver"=>"mysql",
     "mysql"=>[
         "host"=>"127.0.0.1",
-        "dbname"=>"travis",
+        "dbname"=>"php_package",
         "user"=>"travis",
         "password"=>"root"
     ]
