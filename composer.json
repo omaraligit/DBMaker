@@ -1,0 +1,26 @@
+{
+    "name": "omaraligit/go-database",
+    "description": "a database and db manager system for php",
+    "type": "library",
+    "require-dev": {
+        "phpunit/phpunit": "^7.5"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "omar ali",
+            "email": "omarali0601520286@gmail.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Notoro\\DBBuilder\\":"src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Notoro\\dbmaker\\Tests\\":"tests"
+        }
+    }
+}
