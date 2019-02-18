@@ -49,14 +49,9 @@ class TableCreationTest extends TestCase
     {
         $dbmaker = new DBMaker($this->config);
         $stauts = $dbmaker->table('users', function (\Notoro\DBBuilder\DatabaseTable $databaseTable){
-            $databaseTable->column('name',[
-                "type"    =>"string",
-                "primary" =>true,
-                "unique"  =>true,
-                "null"    =>true,
-                "default" =>"-"
-            ]);
-
+            $databaseTable->number('id',10)->primary();
+            $databaseTable->string('nom',250)->unique()->default("hi");
+            $databaseTable->date("bday")->default(\date("d/m/YY"))->isNull(true);
         });
         $this->assertEquals(true,true);
     }

@@ -10,21 +10,11 @@ namespace Notoro\DBBuilder;
 
 class DatabaseColumn {
     public $name;
-    public $primary = false;
-    public $unique  = false;
-    public $type    = "VARCHAR";
-    public $null    = false;
-    public $default = null;
-    public function __construct(string $name, $params = []){
-        $this->name = $name;
-        if(!empty($params)){
-            $this->primary  = $params['primary'];
-            $this->unique   = $params['unique'];
-            $this->type     = $params['type'];
-            $this->null     = $params['null'];
-            $this->default  = $params['default'];   
-        }
+    public $metaData = [];
 
+
+    public function __construct(string $name){
+        $this->name = $name;
     }
 
 

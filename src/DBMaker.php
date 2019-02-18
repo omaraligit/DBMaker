@@ -82,6 +82,9 @@ class DBMaker
     {
         $tableColumns = new \Notoro\DBBuilder\DatabaseTable();
         call_user_func_array($databaseTableFun,[$tableColumns]);
+        var_dump($tableColumns->columns);
+        //$query = (new \Notoro\DBBuilder\QueryBuilder())->createTable($tableName,$tableColumns);
+        //var_dump($query);
     }
 
 
