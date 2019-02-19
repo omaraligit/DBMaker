@@ -9,12 +9,16 @@
 namespace Notoro\DBBuilder;
 
 class DatabaseColumn {
-    public $name;
+    public $columnName;
     public $metaData = [];
 
 
-    public function __construct(string $name){
-        $this->name = $name;
+    public function __construct(string $columnName){
+        $this->columnName = $columnName;
+    }
+
+    public function getName(){
+        return $this->columnName;
     }
 
     public function getType(){
@@ -37,5 +41,25 @@ class DatabaseColumn {
         return $primary;
     }
 
+    public function getDefault(){
+        $default = "";
+        if(array_key_exists("default",$this->metaData))
+            $default.= " ".$this->metaData["default"];
+        return $default;
+    }
+
+    public function getNull(){
+        $null = "";
+        if(array_key_exists("null",$this->metaData))
+            $null.= " ".$this->metaData["null"];
+        return $null;
+    }
+
+    public function getUnique(){
+        $unique = "";
+        if(array_key_exists("unique",$this->metaData))
+            $unique.= " ".$this->metaData["unique"];
+        return $unique;
+    }
 
 }

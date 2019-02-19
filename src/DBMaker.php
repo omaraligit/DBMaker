@@ -57,7 +57,11 @@ class DBMaker
                 "$driver:host={$connectionConfig["host"]};dbname={$connectionConfig["dbname"]}",
                 "{$connectionConfig["user"]}",
                 "{$connectionConfig["password"]}",
-                []
+                [
+                    \PDO::ATTR_ERRMODE            => \PDO::ERRMODE_EXCEPTION,
+                    \PDO::ATTR_DEFAULT_FETCH_MODE => \PDO::FETCH_ASSOC,
+                    \PDO::ATTR_EMULATE_PREPARES   => false,
+                ]
             );
         }catch (\Exception $e){
             throw new DBMakerException($e->getMessage(),$e->getCode());
@@ -82,10 +86,18 @@ class DBMaker
     {
         $tableColumns = new \Notoro\DBBuilder\DatabaseTable();
         call_user_func_array($databaseTableFun,[$tableColumns]);
-        var_dump($tableColumns->columns);
-        $query = (new \Notoro\DBBuilder\QueryBuilder())->createTable($tableName,$tableColumns);
-        var_dump($query);
+        $query = (new \Notoro\DBBuilder\QueryBuilder())->createTable($tableName,$tableColumns)->query;
+        $this->executeQuery($query);
     }
 
-
+    public function executeQuery(string $query, array $params = []){
+        try {
+            $stmt = $this->connection->prepare($query);
+            $stmt->execute($params);
+            $actions = $stmt->fetch();
+            var_dump($query);
+        }catch (\Exception $e){
+            throw new DBMakerException($e->getMessage(),$e->getCode());
+        }
+    }
 }
